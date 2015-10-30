@@ -15,7 +15,7 @@ from anonymizer import introspect
 
 class Command(AppCommand):
 
-    def handle_app(self, app, **options):
+    def handle_app_config(self, app, **options):
 
         anonymizers_module_parent = ".".join(app.__name__.split(".")[:-1])
         mod = importlib.import_module(anonymizers_module_parent)

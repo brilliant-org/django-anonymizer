@@ -4,13 +4,13 @@ amonymize_data command
 
 from django.core.exceptions import ImproperlyConfigured
 from django.core.management.base import AppCommand, CommandError
-from django.utils import importlib
+import importlib
 
 from anonymizer import Anonymizer
 
 class Command(AppCommand):
 
-    def handle_app(self, app, **options):
+    def handle_app_config(self, app, **options):
 
         anonymizers_module = ".".join(app.__name__.split(".")[:-1] + ["anonymizers"])
         mod = importlib.import_module(anonymizers_module)
